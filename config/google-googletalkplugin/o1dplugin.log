@@ -1,0 +1,73 @@
+[000:000] Cpu: 6.69.1, x4, 2301Mhz, 3660MB
+[000:000] Computer model: Not available
+[000:001] [o1d3185-1] Listening for HELLO.
+[000:039] [o1d3185-1] Shutting down instance.
+[000:039] [o1d3185-1] Client disconnected.
+[000:732] [o1d3185-2] Listening for HELLO.
+[000:764] [o1d3185-2] Client connected.
+[000:764] [o1d3185-2] Registered new shared memory segment at 100
+[001:163] [o1d3185-2] Sending rendering size change: 1054x593
+[010:044] [o1d3185-2] Shutting down instance.
+[010:044] [o1d3185-2] Attached client while shutting down; sending shutdown notification.
+[010:044] [o1d3185-2] Client disconnected.
+[010:072] [o1d3185-3] Listening for HELLO.
+[010:107] [o1d3185-4] Listening for HELLO.
+[010:342] [o1d3185-5] Listening for HELLO.
+[010:361] [o1d3185-6] Listening for HELLO.
+[010:384] [o1d3185-6] Client connected.
+[010:384] [o1d3185-6] Registered new shared memory segment at 101
+[010:450] [o1d3185-6] Sending rendering size change: 177x0
+[010:450] [o1d3185-6] Unmapping shared mem: 101
+[010:450] Created new pool buffer at 0x7fa812502000, 57600 bytes
+[010:450] [o1d3185-6] Registered new shared memory segment at 102
+[010:539] [o1d3185-6] Sending rendering size change: 177x100
+[014:287] [o1d3185-3] Client connected.
+[014:287] [o1d3185-3] Registered new shared memory segment at 103
+[014:287] [o1d3185-4] Client connected.
+[014:287] [o1d3185-4] Registered new shared memory segment at 104
+[014:287] [o1d3185-5] Client connected.
+[014:287] [o1d3185-5] Registered new shared memory segment at 105
+[015:014] [o1d3185-4] Sending rendering size change: 100x0
+[015:014] [o1d3185-4] Unmapping shared mem: 104
+[015:014] Created new pool buffer at 0x7fa8149f2000, 14400 bytes
+[015:015] [o1d3185-4] Registered new shared memory segment at 106
+[015:198] [o1d3185-4] Sending rendering size change: 175x100
+[015:245] [o1d3185-4] Unmapping shared mem: 106
+[015:245] Created new pool buffer at 0x7fa812511000, 57600 bytes
+[015:246] [o1d3185-4] Registered new shared memory segment at 107
+[015:332] [o1d3185-4] Unmapping shared mem: 107
+[015:332] [o1d3185-4] Registered new shared memory segment at 108
+[017:838] [o1d3185-3] Sending rendering size change: 1595x0
+[018:612] [o1d3185-5] Sending rendering size change: 100x0
+[018:612] [o1d3185-5] Unmapping shared mem: 105
+[018:612] Created new pool buffer at 0x7fa8149fa000, 14400 bytes
+[018:613] [o1d3185-5] Registered new shared memory segment at 109
+[018:775] [o1d3185-5] Sending rendering size change: 175x100
+[018:932] [o1d3185-3] Sending rendering size change: 1279x720
+[019:990] [o1d3185-5] Unmapping shared mem: 109
+[019:990] Created new pool buffer at 0x7fa812520000, 57600 bytes
+[019:990] [o1d3185-5] Registered new shared memory segment at 110
+[020:090] [o1d3185-5] Unmapping shared mem: 110
+[020:091] [o1d3185-5] Registered new shared memory segment at 111
+[022:977] [o1d3185-7] Listening for HELLO.
+[023:006] [o1d3185-7] Client connected.
+[023:006] [o1d3185-7] Registered new shared memory segment at 112
+[023:242] [o1d3185-7] Sending rendering size change: 1279x720
+[255:672] [o1d3185-4] Shutting down instance.
+[255:672] [o1d3185-4] Attached client while shutting down; sending shutdown notification.
+[255:672] [o1d3185-4] Client disconnected.
+[256:370] [o1d3185-3] Shutting down instance.
+[256:370] [o1d3185-3] Attached client while shutting down; sending shutdown notification.
+[256:370] [o1d3185-3] Client disconnected.
+[256:372] [o1d3185-7] Shutting down instance.
+[256:372] [o1d3185-7] Attached client while shutting down; sending shutdown notification.
+[256:372] [o1d3185-7] Client disconnected.
+[256:769] Error(naclhelpers.cc:172): NaClReceiveDatagram failed : Connection reset by peer
+[256:769] Error(flutemessagelistener.cc:316): [o1d3185-5] Failure to receive datagrams.
+[256:777] [o1d3185-5] Shutting down instance.
+[256:777] [o1d3185-5] Attached client while shutting down; sending shutdown notification.
+[256:777] Error(naclhelpers.cc:62): NaClSendDatagram failed : Broken pipe
+[256:777] [o1d3185-5] Client disconnected.
+[256:777] [o1d3185-6] Shutting down instance.
+[256:777] [o1d3185-6] Attached client while shutting down; sending shutdown notification.
+[256:777] [o1d3185-6] Client disconnected.
