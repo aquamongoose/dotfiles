@@ -22,7 +22,7 @@ filetype plugin on
 
 " currently I prefer tabs! width of 4 chars
 set shiftwidth=4
-set tabstop=2
+set tabstop=4
 
 " my favorite colorscheme for now
 colorscheme desert
