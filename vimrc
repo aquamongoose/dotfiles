@@ -10,6 +10,8 @@ set guioptions=                   " remove EVERYTHING!!!
 set scrolloff=5                   " let me see five lines above/below when possible
 set mouse=a                       " make the mouse work
 set autochdir                     " go to directory the file is in
+set wrap
+set textwidth=80                  " by default, wrap text at 80 columns
 set number
 set relativenumber                " the current line shows the line number, others show relative numbers.
 syntax on                         " turn on syntax highlighting if not available by default
@@ -91,7 +93,7 @@ inoremap <Tab> <C-R>=My_Tab_Completion()<CR>
 
 " LaTeX
 function! TEXSET()
-  set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ pdflatex\ -file-line-error-style\ %;fi;fi
+  set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ pdflatex\ -file-line-error-style\ %\ &&\ evince\ %:r.pdf;fi;fi
   set errorformat=%f:%l:\ %m
 endfunction
 
@@ -108,7 +110,6 @@ function! CSET()
   set errorformat=%f:%l:\ %m
   set cindent
   set tw=0
-  set nowrap
 endfunction
 
 " C++
@@ -116,7 +117,6 @@ function! CPPSET()
   set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ g++\ -O2\ -g\ -Wall\ -W\ -O2\ -o%.bin\ %\ &&\ ./%.bin;fi;fi
   set cindent
   set tw=0
-  set nowrap
 endfunction
 
 " Java
@@ -125,7 +125,6 @@ function! JAVASET()
   set errorformat=%f:%l:\ %m
   set cindent
   set tw=0
-  set nowrap
 endfunction
 
 " vim scripts
@@ -156,21 +155,18 @@ function! PYSET()
   set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ python3\ %;fi;fi
   set smartindent
   set tw=0
-  set nowrap
 endfunction
 
 " Perl
 function! PERLSET()
   set cindent
   set tw=0
-  set nowrap
 endfunction
 
 " Ruby
 function! RUBYSET()
   set smartindent
   set tw=0
-  set nowrap
 endfunction
 
 " Scheme
@@ -182,14 +178,12 @@ function! SCSET()
     inoremap ) ]
     set smartindent
     set tw=0
-    set nowrap
 endfunction
 
 function! SMLSET()
     set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ mlton\ -output\ a.out\ %\ &&\ ./a.out;fi;fi
     set smartindent
     set tw=0
-    set nowrap
 endfunction
 
 " Autocommands for all languages:
