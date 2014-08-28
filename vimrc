@@ -7,9 +7,9 @@ set autoindent                    " same indentation as previous line on return
 set history=512                   " remember last 512 commands
 set ruler                         " show cursor position in the bottom line
 set guioptions=                   " remove EVERYTHING!!!
-set scrolloff=5 									" let me see five lines above/below when possible
+set scrolloff=5                   " let me see five lines above/below when possible
 set mouse=a                       " make the mouse work
-set autochdir 										" go to directory the file is in
+set autochdir                     " go to directory the file is in
 set number
 set relativenumber                " the current line shows the line number, others show relative numbers.
 syntax on                         " turn on syntax highlighting if not available by default
@@ -20,9 +20,10 @@ filetype plugin on
 " ======================================================================================================
 " Small tweaks: my preferred indentation, colors, autowrite, status line etc.:  {{{
 
-" currently I prefer tabs! width of 4 chars
+" currently I prefer spaces instead of tabs, width of 4 chars
 set shiftwidth=4
 set tabstop=4
+set expandtab
 
 " my favorite colorscheme for now
 colorscheme desert
@@ -90,7 +91,7 @@ inoremap <Tab> <C-R>=My_Tab_Completion()<CR>
 
 " LaTeX
 function! TEXSET()
-  set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ pdfcslatex\ -file-line-error-style\ %;fi;fi
+  set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ pdflatex\ -file-line-error-style\ %;fi;fi
   set errorformat=%f:%l:\ %m
 endfunction
 
@@ -174,6 +175,7 @@ endfunction
 
 " Scheme
 function! SCSET()
+    set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ racket\ %;fi;fi
     inoremap [ (
     inoremap ] )
     inoremap ( [
@@ -183,7 +185,15 @@ function! SCSET()
     set nowrap
 endfunction
 
+function! SMLSET()
+    set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ mlton\ -output\ a.out\ %\ &&\ ./a.out;fi;fi
+    set smartindent
+    set tw=0
+    set nowrap
+endfunction
+
 " Autocommands for all languages:
+autocmd FileType sml     call SMLSET()
 autocmd FileType vim     call VIMSET()
 autocmd FileType c       call CSET()
 autocmd FileType C       call CPPSET()
