@@ -1,7 +1,20 @@
 " .vimrc
 
 " ======================================================================================================
+" Gypsy black magic {{{
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+call vundle#end()
+filetype plugin indent on
+let g:airline_powerline_fonts = 1
+set t_Co=256
+" }}}
+" ======================================================================================================
 " Some standard settings: {{{
+set nocompatible
 set bs=2                          " backspace should work as we expect it to
 set autoindent                    " same indentation as previous line on return
 set history=512                   " remember last 512 commands
@@ -14,13 +27,14 @@ set wrap
 set textwidth=80                  " by default, wrap text at 80 columns
 set number
 set relativenumber                " the current line shows the line number, others show relative numbers.
+set laststatus=2
 syntax on                         " turn on syntax highlighting if not available by default
 filetype on
 filetype indent on
 filetype plugin on
 " }}}
 " ======================================================================================================
-" Small tweaks: my preferred indentation, colors, autowrite, status line etc.:  {{{
+" Small tweaks: my preferred indentation, colors, autowrite etc.:  {{{
 
 " currently I prefer spaces instead of tabs, width of 4 chars
 set shiftwidth=4
@@ -62,19 +76,6 @@ set display+=uhex
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" status line: we want it at all times -- yellow on black, with ASCII code of the current letter
- set statusline=%<%f%h%m%r%=char=%b=0x%B\ \ %l,%c%V\ %P
- set laststatus=2
- set highlight+=s:MyStatusLineHighlight
-highlight MyStatusLineHighlight ctermbg=black ctermfg=yellow guibg=black guifg=yellow
-
-" tab line: yellow letters, with a black background.
-" (this is what appears instead of the status line when you use <tab> in command mode)
-highlight TabLine ctermbg=black ctermfg=yellow guibg=black guifg=yellow
-highlight TabLineSel ctermbg=black ctermfg=yellow guibg=black guifg=yellow
-highlight TabLineFill ctermbg=black ctermfg=yellow guibg=black guifg=yellow
-
-
 " }}}
 " ======================================================================================================
 " <Tab> at the end of a word should attempt to complete it using tokens from the current file: {{{
@@ -106,7 +107,7 @@ endfunction
 
 " C
 function! CSET()
-  set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ gcc\ -O2\ -g\ -Wall\ -W\ -lm\ -o%.bin\ %\ &&\ ./%.bin;fi;fi
+  set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ gcc\ -O2\ -std=c99\ -g\ -Wall\ -W\ -lm\ -o%.bin\ %\ &&\ ./%.bin;fi;fi
   set errorformat=%f:%l:\ %m
   set cindent
   set tw=0
@@ -114,7 +115,7 @@ endfunction
 
 " C++
 function! CPPSET()
-  set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ g++\ -O2\ -g\ -Wall\ -W\ -O2\ -o%.bin\ %\ &&\ ./%.bin;fi;fi
+  set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ if\ \[\ -f\ \"makefile\"\ \];then\ make\ $*;else\ g++\ -std=c++11\ -O2\ -g\ -Wall\ -W\ -O2\ -o%.bin\ %\ &&\ ./%.bin;fi;fi
   set cindent
   set tw=0
 endfunction
@@ -190,7 +191,7 @@ endfunction
 autocmd FileType sml     call SMLSET()
 autocmd FileType vim     call VIMSET()
 autocmd FileType c       call CSET()
-autocmd FileType C       call CPPSET()
+autocmd FileType C       call CSET()
 autocmd FileType haskell call HSSET()
 autocmd FileType hs      call HSSET()
 autocmd FileType scheme  call SCSET()
